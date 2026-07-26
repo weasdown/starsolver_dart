@@ -3,14 +3,14 @@ import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    final awesome = Awesome();
-
     setUp(() {
       // Additional setup goes here.
     });
 
     test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
+      Cell cell = Cell(coord: Coordinate(x: 0, y: 0));
+      expect(cell.coord.x, 0);
+      expect(cell.coord.y, 0);
     });
   });
 }
