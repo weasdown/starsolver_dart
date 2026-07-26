@@ -1,0 +1,16 @@
+name: starsolver_dart
+description: The logic core of the Flutter implementation of starsolver.
+version: 0.1.0
+repository: https://github.com/weasdown/starsolver
+publish_to: 'none'
+
+environment:
+  sdk: ^3.12.2
+
+# Add regular dependencies here.
+dependencies:
+  # path: ^1.9.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6
