@@ -3,9 +3,9 @@ import 'shape.dart';
 
 /// An individual cell within a [Board].
 class Cell {
-  Cell({required this.coord, this.colour})
-    : _status = CellStatus.blank,
-      boundaries = CellBoundarySet(
+  Cell({required this.coord, this.colour, CellStatus? status})
+    : _status = status ?? CellStatus.blank,
+      boundaries = const CellBoundarySet(
         start: false,
         top: false,
         end: false,
@@ -16,12 +16,12 @@ class Cell {
   void blank() => _status = CellStatus.blank;
 
   /// Whether each edge of the [Cell] is the boundary of a [Shape].
-  CellBoundarySet boundaries;
+  final CellBoundarySet boundaries;
 
   /// The background colour of the cell when display as a `CellWidget` (see `starsolver_flutter`).
   ///
   /// The colour is used to determine which [Shape] a [Cell] is within.
-  Colour? colour;
+  final Colour? colour;
 
   /// The [Coordinate] of the [Cell] in the [Board].
   ///
@@ -55,7 +55,7 @@ class CellBoundarySet {
   final bool end;
   final bool bottom;
 
-  CellBoundarySet({
+  const CellBoundarySet({
     required this.start,
     required this.top,
     required this.end,
@@ -91,13 +91,8 @@ class Coordinate {
   final int y;
 
   @override
-  bool operator ==(Object other) {
-    if (other is Coordinate && other.x == x && other.y == y) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  bool operator ==(Object other) =>
+      other is Coordinate && other.x == x && other.y == y;
 
   @override
   int get hashCode => Object.hash(x, y);
