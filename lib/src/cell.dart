@@ -18,7 +18,7 @@ class Cell {
   /// Whether each edge of the [Cell] is the boundary of a [Shape].
   CellBoundarySet boundaries;
 
-  /// The background colour of the cell when display as a [CellWidget].
+  /// The background colour of the cell when display as a `CellWidget` (see `starsolver_flutter`).
   ///
   /// The colour is used to determine which [Shape] a [Cell] is within.
   Colour? colour;
@@ -79,7 +79,7 @@ enum CellStatus {
   const CellStatus({required this.text, required this.value});
 
   /// Gets the next value of [CellStatus], so it can be iterated when a
-  /// [CellWidget] is tapped.
+  /// `CellWidget` (see `starsolver_flutter`) is tapped.
   CellStatus get nextStatus => CellStatus.values[value < 2 ? value + 1 : 0];
 }
 
